@@ -1,95 +1,103 @@
-//第一题
-func order(array: [Int]) -> [Int] {
-    let ordered = array.sorted(by:>)
-    return ordered
+import UIKit
+
+class ViewController: UIViewController {
+    
+            let img = UIImageView()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        img.frame = CGRect(x: 160, y: 250, width: 50, height: 50)
+        img.image = #imageLiteral(resourceName: "71D823763B210FB32268401E4E9CA022")
+        view.addSubview(img)
+        let but1 = UIButton()
+        but1.frame = CGRect(x: 160, y: 500, width: 50, height: 50)
+        but1.setImage(#imageLiteral(resourceName: "71D823763B210FB32268401E4E9CA022"),for: .normal)
+        but1.setImage(#imageLiteral(resourceName: "71D823763B210FB32268401E4E9CA022"),for: .highlighted)
+        but1.addTarget(self, action: #selector(imageUP(img1: )), for: .touchUpInside)
+        view.addSubview(but1)
+        let but2 = UIButton()
+        but2.frame = CGRect(x: 160, y: 400, width: 50, height: 50)
+        but2.setImage(#imageLiteral(resourceName: "71D823763B210FB32268401E4E9CA022"),for: .normal)
+        but2.setImage(#imageLiteral(resourceName: "71D823763B210FB32268401E4E9CA022"),for: .highlighted)
+        but2.addTarget(self, action: #selector(imageDown(img2: )), for: .touchUpInside)
+        view.addSubview(but2)
+        let but3 = UIButton()
+        but3.frame = CGRect(x: 110, y: 450, width: 50, height: 50)
+        but3.setImage(#imageLiteral(resourceName: "71D823763B210FB32268401E4E9CA022"),for: .normal)
+        but3.setImage(#imageLiteral(resourceName: "71D823763B210FB32268401E4E9CA022"),for: .highlighted)
+        but3.addTarget(self, action: #selector(imageLeft(img3: )), for: .touchUpInside)
+        view.addSubview(but3)
+        let but4 = UIButton()
+        but4.frame = CGRect(x: 210, y: 450, width: 50, height: 50)
+        but4.setImage(#imageLiteral(resourceName: "71D823763B210FB32268401E4E9CA022"),for: .normal)
+        but4.setImage(#imageLiteral(resourceName: "71D823763B210FB32268401E4E9CA022"),for: .highlighted)
+        but4.addTarget(self, action: #selector(imageRight(img4: )), for: .touchUpInside)
+        view.addSubview(but4)
+        let but5 = UIButton()
+        but5.frame = CGRect(x: 160, y: 450, width: 50, height: 50)
+        but5.setImage(#imageLiteral(resourceName: "71D823763B210FB32268401E4E9CA022"),for: .normal)
+        but5.setImage(#imageLiteral(resourceName: "71D823763B210FB32268401E4E9CA022"),for: .highlighted)
+        but5.addTarget(self, action: #selector(imageOrigin(img1: )), for: .touchUpInside)
+        view.addSubview(but5)
+        let but6 = UIButton()
+        but6.frame = CGRect(x: 300, y: 400, width: 50, height: 50)
+        but6.setImage(#imageLiteral(resourceName: "71D823763B210FB32268401E4E9CA022"),for: .normal)
+        but6.setImage(#imageLiteral(resourceName: "71D823763B210FB32268401E4E9CA022"),for: .highlighted)
+        but6.addTarget(self, action: #selector(imageRotate(img: )), for: .touchUpInside)
+        view.addSubview(but6)
+        let but7 = UIButton()
+        but7.frame = CGRect(x: 300, y: 500, width: 50, height: 50)
+        but7.setImage(#imageLiteral(resourceName: "71D823763B210FB32268401E4E9CA022"),for: .normal)
+        but7.setImage(#imageLiteral(resourceName: "71D823763B210FB32268401E4E9CA022"),for: .highlighted)
+        but7.addTarget(self, action: #selector(imageEnlarge(img: )), for: .touchUpInside)
+        view.addSubview(but7)
+        let but8 = UIButton()
+        but8.frame = CGRect(x: 300, y: 600, width: 50, height: 50)
+        but8.setImage(#imageLiteral(resourceName: "71D823763B210FB32268401E4E9CA022"),for: .normal)
+        but8.setImage(#imageLiteral(resourceName: "71D823763B210FB32268401E4E9CA022"),for: .highlighted)
+        but8.addTarget(self, action: #selector(imageEnsmall(img: )), for: .touchUpInside)
+        view.addSubview(but8)
+    }
+            
+    @objc func imageUP(img1: UIImageView) {
+                UIView.animate(withDuration: 3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0,options: [], animations: {
+                    self.img.frame.origin.y += 40
+                }, completion: nil)
+            }
+            @objc func imageDown(img2: UIImageView) {
+                UIView.animate(withDuration: 3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0,options: [], animations: {
+                    self.img.frame.origin.y -= 40
+                }, completion: nil)
+            }
+        @objc func imageLeft(img3: UIImageView) {
+            UIView.animate(withDuration: 3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0,options: [], animations: {
+                self.img.frame.origin.x -= 40
+            }, completion: nil)
+        }
+        @objc func imageRight(img4: UIImageView) {
+            UIView.animate(withDuration: 3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0,options: [], animations: {
+                self.img.frame.origin.x += 40
+            }, completion: nil)
+        }
+    
+    @objc func imageOrigin(img1: UIImageView) {
+         img.frame = CGRect(x: 160, y: 250, width: 50, height: 50)
+            }
+    @objc func imageRotate(img: UIImageView) {
+        UIView.animate(withDuration: 3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0,options: [], animations: {
+            self.img.transform = self.img.transform.rotated(by: CGFloat(M_PI)/2)
+        }, completion: nil)
+    }
+    @objc func imageEnlarge(img: UIImageView) {
+               UIView.animate(withDuration: 3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0,options: [], animations: {
+                self.img.transform = self.img.transform.scaledBy(x: 1.5, y: 1.5)
+               }, completion: nil)
+           }
+    @objc func imageEnsmall(img: UIImageView) {
+               UIView.animate(withDuration: 3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0,options: [], animations: {
+                self.img.transform = self.img.transform.scaledBy(x: 0.5, y: 0.5)
+               }, completion: nil)
+           }
+
 }
 
-//第二题
-struct Point {
-    var x = 0.0, y = 0.0
-}
-struct Size {
-    var width = 0.0
-    var length = 0.0
-}
-struct Rectangle {
-    var point = Point()
-    var size = Size()
-    var perimeter: Double {
-            get {
-                let C = (size.length + size.width) * 2
-                return perimeter
-        }
-        }
-    var center: Point {
-        get {
-            let centerX = point.x + (size.width/2)
-            let centerY = point.y + (size.length)
-            return Point(x: centerX, y: centerY)
-        }
-    }
-    var area: Double {
-        get {
-            let S = size.length * size.width
-            return area
-        }
-}
-    static func zuobiao(x: Rectangle) -> [(Double,Double)] {
-        let a = (0.0, 0.0)
-        let b = (0.0 + x.size.width,0.0)
-        let c = (0.0 + x.size.width,0.0 + x.size.length)
-        let d = (0.0,0.0 + x.size.length)
-        return [a,b,c,d]
-    }
-    static func PremeterGap(C1: Rectangle, C2: Rectangle) -> Double {
-        return (abs(C1.perimeter - C2.perimeter))
-    }
-    static func AreaGap(S1: Rectangle, S2: Rectangle) -> Double {
-    return (abs(S1.area - S2.area))
-    }
-}
-//第三题
-class Person {
-    var name: String
-    var gender: String
-    var age: Int
-    var height: Int
-    init(name: String, gender: String, age: Int, height: Int) {
-        self.name = name
-        self.gender = gender
-        self.age = age
-        self.height = height
-    }
-}
-class Student : Person {
-    var grade: Int
-    var major: String
-    var weighting: Int
-    init(grade: Int,major: String,weighting: Int) {
-        self.grade = 1
-        self.major = "computing"
-        self.weighting = 0
-        super.init(name: "雷金洲", gender: "male", age: 19, height: 170)
-    }
-}
-class Teacher : Person {
-    var teachingSubject: String
-    var height: Int
-    var weight: Int
-    static func BMI(x:Int) -> Int {
-        var x = height / (weight ^ 2)
-        return x
-    }
-    static func HeightGap(H1: Student, H2: Student) -> Int {
-        return (abs(H1.height - H2.height))
-    }
-    static func AverageWeighting(Mark1: Student, Mark2: Student) -> Int {
-        return (abs(Mark1.weighting - Mark2.weighting))
-    }
-    init(teachingSubject: String, weight: Int) {
-        self.teachingSubject = teachingSubject
-        self.weight = weight
-        super.init(name: "曹学广", gender: "male", age: 40, height: 173)
-        
-    }
-}
